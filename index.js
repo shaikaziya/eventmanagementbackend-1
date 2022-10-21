@@ -62,7 +62,7 @@ app.get("/verify/:id", async (request, response) =>  {
     console.log(verifyd)
     verifyd 
     ? response.send(verifyd) 
-    : response.status(404).send({ message: "No movie found" });
+    : response.status(404).send({ message: "No data found" });
 });
 
 app.delete("/verify/:id", async (request, response) =>  {    
