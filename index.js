@@ -6,8 +6,8 @@ import  { MongoClient } from "mongodb";
 
 dotenv.config()
 const app = express();
-const PORT = process.env.PORT
-
+// const PORT = process.env.PORT
+const PORT =9000
 const verifydata = [
     {
     "name":"name11",
