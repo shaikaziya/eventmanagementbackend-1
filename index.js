@@ -4,21 +4,23 @@ import dotenv from "dotenv"
 import express from "express";
 import  { MongoClient } from "mongodb";
 import {verifyRouter} from "./routes/verifydata.js";
+import {userRouter} from './routes/user.js'
+
 dotenv.config()
 const app = express();
 const PORT = process.env.PORT
 // const PORT =9000
-const verifydata = [
-    {
-    "name":"name11",
-    "email":"email11"
-    },
-    {
-        "name":"name2",
-        "email":"email2"
-        },
+// const verifydata = [
+//     {
+//     "name":"name11",
+//     "email":"email11"
+//     },
+//     {
+//         "name":"name2",
+//         "email":"email2"
+//         },
     
-    ]
+//     ]
 const MONGO_URL =process.env.MONGO_URL
 
 app.get("/", (request, response) =>  {
@@ -34,13 +36,15 @@ async function createConnection() {
 export const client =  await createConnection();
 app.use(express.json())
 app.use("/verify",verifyRouter)
+app.use("/user1",userRouter)
+app.listen(PORT, () => console.log("Server started on port", PORT));
 // Rest Api endpoints
 
 // app.get("/", (request, response) =>  {
 //     response.send("Hello Everyone")
 // });
 
-app.listen(PORT, () => console.log("Server started on port", PORT));
+
 
 // app.get("/verify",async (request, response) =>  {
 

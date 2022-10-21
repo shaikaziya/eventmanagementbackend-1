@@ -22,10 +22,9 @@ router.get("/:id", async (request, response) =>  {
 
     const verifyd = await getAllMoviesById(id)
     
-    console.log(movie)
     verifyd 
     ? response.send(verifyd) 
-    : response.status(404).send({ message: "No movie found" });
+    : response.status(404).send({ message: "No data found" });
 });
 
 
