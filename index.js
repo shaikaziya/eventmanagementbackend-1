@@ -1,12 +1,12 @@
 // const express = require('express'); // 3rd party package 
 // const { MongoClient } = require("mongodb")
-
+import dotenv from "dotenv"
 import express from "express";
 import  { MongoClient } from "mongodb";
 
-
+dotenv.config()
 const app = express();
-const PORT = 9000;
+const PORT = process.env.PORT
 
 const verifydata = [
     {
@@ -19,8 +19,7 @@ const verifydata = [
         },
     
     ]
-  
-const MONGO_URL ="mongodb+srv://shaikaziya:shaikaziya123@cluster0.bpnjhgc.mongodb.net"
+const MONGO_URL =process.env.MONGO_URL
 
 async function createConnection() {
     const client = new MongoClient(MONGO_URL)
